@@ -1,0 +1,699 @@
+// Mixins
+@red: #FD5C55;
+@blue: #4697CA;
+@bluedark: #073765;
+
+// Clases especiales
+.open-sans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+/////////////////// GENERAL ////////////////////////////
+html {
+    font-size: 62.5%;
+}
+
+body {
+    .lato;
+}
+
+p {
+    line-height: 1.5;
+    font-size: calc(1.6rem + 0.5vw);
+}
+
+input {
+    outline: none;
+}
+// Secció Footer
+.footer {
+    padding-top: 3rem;
+    .footer-content {
+        .columnas {
+            background-color: #2c2c2c;
+            @media(min-width:768px) {
+                display: flex;
+                justify-content: space-around;
+                padding: 3rem 0;
+            }
+            h4 {
+                color: white;
+                text-align: center;
+                @media(min-width: 768px) {
+                    margin-bottom: 1rem;
+                }
+            }
+            .left {
+                h2 {
+                    color: white;
+                    text-align: center;
+                    margin-bottom: 3rem;
+                    padding-top: 2rem;
+                    span {
+                        color: @red;
+                    }
+                }
+                .social-media {
+                    justify-content: center;
+                }
+            }
+            .center {
+                .center-nav {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    @media(min-width:768px) {
+                        align-items: flex-start;
+                    }
+                    a {
+                        color: #dcdcdc;
+                        font-size: 1.4rem;
+                        margin-top: 0.7rem;
+                    }
+                }
+            }
+            .right {
+                padding-bottom: 2rem;
+                h4 {
+                    @media(min-width:768px) {
+                        text-align: left;
+                    }
+                }
+                .right-text {
+                    color: #dcdcdc;
+                    text-align: center;
+                    p {
+                        font-size: 1.4rem;
+                        @media(min-width:768px) {
+                            text-align: left;
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .copyright {
+            background-color: #151515;
+            p {
+                padding: 2rem 0;
+                color: #dcdcdc;
+                font-size: 1.4rem;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+// Logos xarxes socials
+.social-media {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    
+    a {
+        margin-right: 2rem;
+        &:first-of-type {
+            margin-right: 0;
+        }
+        img {
+            width: 2rem;
+            @media(min-width:768px) {
+                width: 3rem;
+            }
+        }
+    }
+}
+////////////////////// FIN GENERAL ////////////////////
+////////////////// pg-home ///////////////////////////
+.page-home {
+
+    h1 {
+        font-size: calc(2.5rem + 1.5vw);
+        font-weight: 900;
+        color: @red;
+        text-shadow: -1px 0px #b63f3f;
+        word-spacing: 1rem;
+    }
+    
+    h2 {
+        font-size: calc(2.2rem + 0.5vw);
+    }
+    
+    h3 {
+        font-size: 2.2rem;
+    }
+    
+    h4 {
+        font-size: calc(1.6rem + 0.2vw);
+        margin-top: 3rem;
+        font-weight: 800;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    ///////////////// HEADER
+    .header {
+        background-image: url(../img/padel1.jpg);
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    // Posicionar els tres contenidos que conformen el header
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: space-between;
+    }
+    
+    .header-content-top {
+        h2 {
+            text-align: center;
+            text-shadow: -3px 0px 4px #150057;
+            span {
+                color: @red;
+            }
+        }
+        .navbar {
+            @media(min-width:768px) {
+                justify-content: space-between;
+                background-color: transparent;
+            }
+            @media(min-width:851px) {
+                margin: 0 3rem;
+            }
+            
+            .navbar-nav {
+                .nav-link {
+                    font-size: 1.8rem;
+                    color: white!important;
+                    width: 50%;
+                    border-bottom: 2px solid white;
+                    margin-bottom: 1rem;
+                    &:last-of-type {
+                        border-bottom: none;
+                    }
+                    @media(min-width:768px) {
+                        border-bottom: none;
+                        text-shadow: -1px 0px 1px #150057;
+                    }
+    
+                }
+            }
+        }
+        // Para centrar el menú de navegación
+        .navbar-collapse {
+            justify-content: center;
+        }
+        .estado-1 {
+            display: none;
+            @media(min-width:768px) {
+                display: block;
+            }
+        }
+        .estado-2 {
+            display: flex;
+            justify-content: flex-end;
+            margin: 2rem 1rem;
+            @media(min-width:768px) {
+                display: none;
+            }
+        }
+        // Menú responsive
+        .collapse {
+            flex-grow: initial;
+        }
+        .collapse.show .navbar-nav {
+            position: fixed;
+            background-color: @red;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .4s;
+            z-index: 30;
+            a {
+                font-size: 1.8rem;
+                padding: 1rem;
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+        .collapsing {
+            position:relative;
+            height:0!important;
+            overflow:hidden;
+        }
+    }
+    
+    .header-content-middle {
+        text-align: center;
+        padding-bottom: 17rem;
+    
+        h1 {
+            width: 68%;
+            margin: 0 auto;
+        }
+        @media(min-width:768px) {
+            padding-bottom: 11rem;
+        }
+        div {
+            margin-top: 3rem;
+            a {
+                font-size: calc(2rem + 1vw);
+                color: white;
+                font-weight: 900;
+                border-radius: 0.8rem;
+                padding: 1rem 3rem;
+                border: 2px solid @red;
+                background-color: @red;
+                transition: 1s ease;
+                &:hover {
+                    text-decoration: none;
+                    border-color: #f08d88;;
+                    background-color: #f08d88;;;
+                }
+            }
+        }
+    }
+    
+    // Posicionar logo ajuntament i xarxes social
+    .header-content-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        padding-bottom: 2rem;
+        margin: 0 2rem;
+        @media(min-width:851px) {
+            margin: 0 3rem;
+        }
+        .ajuntament {
+            img {
+                width: 11rem;
+                @media(min-width:768px) {
+                    width: 14rem;
+                }
+            }
+        }
+        // .social-media {
+        //     display: flex;
+        //     flex-direction: row-reverse;
+        //     justify-content: space-between;
+            
+        //     a {
+        //         margin-right: 2rem;
+        //         &:first-of-type {
+        //             margin-right: 0;
+        //         }
+        //         img {
+        //             width: 2rem;
+        //             @media(min-width:768px) {
+        //                 width: 3rem;
+        //             }
+        //         }
+        //     }
+        // }
+    }
+    
+    
+    // Contador
+    
+    .contador {
+        background-color: @blue;
+        color: white;
+        padding-bottom: 1rem;
+        @media(min-width:768px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+        }
+        h3 {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            font-weight: 800;
+            @media(min-width:768px) {
+                margin-right: 2rem;
+                width: 40%;
+                text-align: right;
+                padding: 2rem;
+                margin: inherit;
+                font-size: calc(2rem + 1vw);
+            }
+        }
+        .contador-tiempo {
+            display: flex;
+            justify-content: center;
+            .day,
+            .hours,
+            .minutes {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 2rem;
+                @media(min-width:768px) {
+                    margin-right: 4rem;
+                }
+                p:first-of-type {
+                    font-weight: 800;
+                    @media(min-width:768px) {
+                        font-size: calc(2rem + 1vw);
+                    }
+                }
+                p:last-of-type {
+                    @media(min-width:768px) {
+                        font-size: calc(1.2rem + 0.5vw);
+                    }
+                }
+            }
+            .minutes {
+                margin-right: 0;
+            }
+        }
+    }
+    
+    /// Zona Inici
+    
+    .main {
+        .main-content {
+            max-width: 80%;
+            margin: 2rem auto;
+            @media(min-width:768px) {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .main-content-image {
+                img {
+                    border-radius: 0.8rem;
+                }
+            }
+            .main-content-text {
+                @media(min-width:768px) {
+                    max-width: 50%;
+                    margin-left: 4rem;
+                }
+                @media(min-width: 1126px) {
+                    max-width: 58%;
+                    margin-left: 8rem;
+                }
+                h2 {
+                    font-size: 1.2rem;
+                }
+                p {
+                    &:first-of-type {
+                        font-size: 1.8rem;
+                    }
+                    &:last-of-type {
+                        font-size: 1.5rem;
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    // Secció Classificacions
+    .clasificacions {
+        background-image: url(../img/padel4.jpg);
+        background-repeat: no-repeat;
+        height: 17rem;
+        background-size: cover;
+        background-position: 0;
+        .clasificacions-content {
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @media(min-width:768px) {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            h2 {
+                font-size: calc(3.2rem + 0.5vw);
+                font-weight: 800;
+                color: white;
+                text-shadow: -1px 0px 7px #150057;
+                margin-bottom: 2rem;
+                @media(min-width:768px) {
+                    margin-bottom: 0;
+                }
+            }
+            a {
+                font-size: calc(2rem + 1vw);
+                color: white;
+                font-weight: 900;
+                border-radius: 0.8rem;
+                padding: 1rem 3rem;
+                border: @bluedark;
+                background-color: @bluedark;
+                transition: 1s ease;
+                &:hover {
+                    text-decoration: none;
+                    border: #0d63b5;
+                    background-color: #0d63b5;
+                }
+            }
+        }
+    }
+    
+    // Secció Noticies
+    .noticies {
+        width: 80%;
+        margin: 0 auto;
+        h2 {
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .noticies-content {
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            @media(min-width:768px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 3rem;
+            }
+            @media(min-width:1024px) {
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 3rem;
+            }
+            .noticies-1,
+            .noticies-2,
+            .noticies-3 {
+                height: 41rem;
+                width: 100%;
+                margin: 0 auto;
+                width: 100%;
+                background-repeat: no-repeat;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 2rem;
+                color: white;
+                position: relative;
+                z-index: 100;
+                margin-bottom: 2rem;
+                border-radius: 0.8rem;
+                overflow: hidden;
+                // Fer més fosca la imatge
+                &:before {
+                    content:'';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: rgba(0,0,0,0.3);
+                    z-index: -1;
+                    transition: 1s ease all;
+                }
+                div:first-of-type {
+                    p {
+                        font-size: calc(1.2rem + 0.2vw);
+                    }
+                }
+                div:last-of-type {
+                    p {
+                        &:first-of-type {
+                            font-size: calc(1.6rem + 0.2vw);
+                        }
+                    }
+                }
+            }
+            .noticies-1 {
+                background-image: url(../img/padel3.jpg);
+            }
+            .noticies-2 {
+                background-image: url(../img/padel5.jpg);
+            }
+            .noticies-3 {
+                background-image: url(../img/padel7.jpg);
+            }
+            // Al passar el ratolí per una notícia la imatge es torna clara
+            .noticies-1:hover:before,
+            .noticies-2:hover:before,
+            .noticies-3:hover:before {
+                background-color: rgb(255 255 255 / 20%);
+                background-color: initial;
+            }
+        }
+    }
+    
+    // Secció Informació
+    .informacio {
+        margin-top: 2rem;
+        .informacio-content {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            h2 {
+                margin-bottom: 2rem;
+                text-align: center;
+                @media(min-width:768px) {
+                    text-align: left;
+                }
+            }
+            p {
+                font-size: 1.5rem;
+                text-align: justify;
+                @media(min-width:768px) {
+                    text-align: left;
+                }
+            }
+            .informacio-content-image {
+                display: none;
+                @media(min-width:768px) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+///////////////////////////////// FIN pg-home ///////////////////////////
+
+///////////////////////////// pg-inscripcio.php ///////////////////////
+.pg-inscripcio {
+    header {
+        background-color: #2c2c2c;
+        padding: 2rem 0;
+        margin-bottom: 4rem;
+        nav {
+            font-size: 1.8rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            @media(min-width:859px) {
+                flex-direction: row;
+            }
+            figure {
+                img {
+                    width: 8rem;
+                }
+            }
+            a {
+                margin-bottom: 2rem;
+                @media(min-width:859px) {
+                    margin-bottom: 0;
+                }
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+    main {
+        margin-bottom: 4rem;
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            padding-bottom: 2rem;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    input[type="email"],
+    input[type="text"],
+    input[type="date"],
+    select {
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        padding: 0.8rem 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid #bfbfbf;
+    }
+    .registre { //input de registrar
+        font-size: 1.6rem;
+        display: block;
+        border: #073765;
+        background-color: #073765;
+        color: white;
+        font-weight: 900;
+        border-radius: 0.8rem;
+        padding: 1rem 3rem;
+    }
+    .error {
+        font-size: 1.6rem;
+        color: red;
+    }
+    .info {
+        margin-top: -9px;
+        font-size: 1.2rem;
+    }
+    .warning {
+        font-size: 1.2rem;
+        margin-top: 0.2rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.v-modal {// Popup
+    background-color: #edf2ff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    padding: 3rem;
+    border-radius: 0.5rem;
+    .button {
+        display: flex;
+        padding-bottom: 2rem;
+        a {
+            font-size: calc(1.6rem + 0.2vw);
+            color: white;
+            font-weight: 700;
+            border-radius: 0.8rem;
+            padding: 1rem 2rem;
+            border: #073765;
+            background-color: #073765;
+            text-decoration: none;
+        }
+    }
+}// Fin popup
+////////////////////////////// FIN pg-inscripcio /////////////////////////////////
