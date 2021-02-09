@@ -165,7 +165,9 @@ window.onload = function() {
         for (var i = 0; i < inputs.length - 1; i++) {
             var element = inputs[i].value;
             if (element == '') {
-                event.preventDefault();
+                // REVIEW
+                // event.preventDefault();
+                // END REVIEW
                 // console.log('Vacío');
                 inputs[i].style.border = "1px solid red";
                 camps_buits.innerHTML = "Falten camps per omplir!";
@@ -175,7 +177,9 @@ window.onload = function() {
         }
         // Actualització 23-11-20 
         if (validarDNI(dni.value) == false) {
-            event.preventDefault();
+            // REVIEW
+                // event.preventDefault();
+                // END REVIEW
             dni_error.innerHTML = "DNI incorrecte";
             dni.style.border = "1px solid red";
             console.log('DNI incorrecte');

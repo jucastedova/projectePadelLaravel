@@ -62,6 +62,15 @@
                 <p id="dni_error" class="error"></p>
                 <p id="data_error" class="error"></p>
             </form>
+            @if ($errors->any())
+            <div class="errores">
+                <ul class="error">
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
         <!--REVIEW -->
         @if (session('inscrip'))

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-// use App\Http\Requests\RestaurantModifyRequest;
+use App\Http\Requests\InscripcioCrearRequest;
 use Illuminate\Support\Facades\Mail;
 
 class InscripcioController extends Controller
@@ -33,7 +33,7 @@ class InscripcioController extends Controller
         }
     }
 
-    public function inscription(Request $request) {
+    public function inscription(InscripcioCrearRequest $request) {
         $data = $request->except('_token');
 
         try {
@@ -50,7 +50,7 @@ class InscripcioController extends Controller
 
             // tabla inscripcio
             $dni = $data['dni'];
-            $nom = $data['nom'];
+            // $nom = $data['nom'];
             $queryIdParticipant = DB::select('SELECT id_participant FROM tbl_participants WHERE dni = "'.$dni.'"');
             // print_r($queryIdParticipant[0]->id_participant);
             $id_participant = $queryIdParticipant[0]->id_participant;
