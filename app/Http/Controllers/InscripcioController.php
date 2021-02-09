@@ -50,6 +50,7 @@ class InscripcioController extends Controller
 
             // tabla inscripcio
             $dni = $data['dni'];
+            $nom = $data['nom'];
             $queryIdParticipant = DB::select('SELECT id_participant FROM tbl_participants WHERE dni = "'.$dni.'"');
             // print_r($queryIdParticipant[0]->id_participant);
             $id_participant = $queryIdParticipant[0]->id_participant;
@@ -59,7 +60,8 @@ class InscripcioController extends Controller
                 'id_participant'=>$id_participant, 
                 'id_categoria'=>$id_categ]);
             
-            return redirect('inscripcio');
+            // return redirect('inscripcio')->with(['inscrip', 'ok'], ['nom', $nom]);
+            return redirect('inscripcio')->with('inscrip', 'ok');
 
         } catch (\Throwable $th) {
             echo 'Error';

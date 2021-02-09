@@ -63,6 +63,16 @@
                 <p id="data_error" class="error"></p>
             </form>
         </div>
+        <!--REVIEW -->
+        @if (session('inscrip'))
+        <div class="v-modal">
+            <p>l'inscripció s'ha realitzar correctament</p>
+            <div class="button">
+                <a href="{{url('/')}}">Tornar</a>
+            </div>
+        </div>
+        @endif
+        <!-- END REVIEW -->
     </main>
     <footer class="footer">
         <div class="footer-content">
