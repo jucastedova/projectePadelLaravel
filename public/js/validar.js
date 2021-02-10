@@ -70,21 +70,6 @@ function validarDNI(nie) {
     }
 }
 
-// OJO
-// function validarInputs() {
-//     console.log('validarInputs');
-//     var element = inputs[i].value;
-//     if (element == '') {
-//         event.preventDefault();
-//         // console.log('Vacío');
-//         inputs[i].style.border = "1px solid red";
-//         camps_buits.innerHTML = "Falten camps per omplir!";
-//     } else {
-//         inputs[i].style.border = "1px solid #bfbfbf";
-//     }
-// }
-
-// FIN OJO
 function canviarData() {
     var categoria = document.getElementById('categoria');
     categoria.innerHTML = "";
@@ -132,8 +117,8 @@ window.onload = function() {
     data.addEventListener('blur', canviarData);
 
     // DNI
-    // 21-11 OJO
     dni.addEventListener('input', function() {
+        dni_error.innerHTML = ""
         if (validarDNI(dni.value) == false) {
             dni_error.innerHTML = "DNI incorrecte";
             dni.style.border = "1px solid red";
@@ -141,34 +126,30 @@ window.onload = function() {
             dni.style.border = "1px solid #bfbfbf";
         }
     });
-    // FIN 21-11 OJO
 
-    submit.addEventListener('submit', function(event) {
-        camps_buits.innerHTML = "";
-        dni_error.innerHTML = "";
+    // DATA
+    data.addEventListener('input', function() {
         data_error.innerHTML = "";
-        // console.log(data.value);
         var dataArray = (data.value).split("-");
         var anyUsuari = dataArray[0];
         var mesUsuari = dataArray[1];
         var diaUsuari = dataArray[2];
-        // console.log(anyActual - anyUsuari);
         if ((anyActual - anyUsuari) < 3) {
             data_error.innerHTML = "Inferior a 3 anys.";
-            event.preventDefault();
         } else if ((anyActual - anyUsuari) == 3 && (mesActual < mesUsuari)) {
             data_error.innerHTML = "Inferior a 3 anys.";
         } else if ((anyActual - anyUsuari) == 3 && (mesActual == mesUsuari) && diaActual < diaUsuari) {
             data_error.innerHTML = "Inferior a 3 anys.";
         }
-
+    });
+    // FI DATA
+    submit.addEventListener('submit', function(event) {
+        camps_buits.innerHTML = "";
+        dni_error.innerHTML = "";
         for (var i = 0; i < inputs.length - 1; i++) {
             var element = inputs[i].value;
             if (element == '') {
-                // REVIEW
-                // event.preventDefault();
-                // END REVIEW
-                // console.log('Vacío');
+                event.preventDefault();
                 inputs[i].style.border = "1px solid red";
                 camps_buits.innerHTML = "Falten camps per omplir!";
             } else {
@@ -176,17 +157,17 @@ window.onload = function() {
             }
         }
         // Actualització 23-11-20 
-        if (validarDNI(dni.value) == false) {
-            // REVIEW
-                // event.preventDefault();
-                // END REVIEW
-            dni_error.innerHTML = "DNI incorrecte";
-            dni.style.border = "1px solid red";
-            console.log('DNI incorrecte');
-        } else {
-            dni.style.border = "1px solid #bfbfbf";
-            console.log('DNI correcte');
-        }
+        // if (validarDNI(dni.value) == false) {
+        //     // REVIEW
+        //         // event.preventDefault();
+        //         // END REVIEW
+        //     dni_error.innerHTML = "DNI incorrecte";
+        //     dni.style.border = "1px solid red";
+        //     console.log('DNI incorrecte');
+        // } else {
+        //     dni.style.border = "1px solid #bfbfbf";
+        //     console.log('DNI correcte');
+        // }
         // FIN 23-11-20
     });
 
