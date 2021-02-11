@@ -103,8 +103,12 @@ window.onload = function() {
     var camps_buits = document.getElementById('camps_buits');
     var dni_error = document.getElementById('dni_error');
     var data_error = document.getElementById('data_error');
-    var data = document.getElementById('data_naixement');
     var dni = document.getElementById('dni');
+    var nom = document.getElementById('nom');
+    var primerCognom = document.getElementById('primer_cognom');
+    var segonCognom = document.getElementById('segon_cognom');
+    var data = document.getElementById('data_naixement');
+    var email = document.getElementById('email');
     // Data actual (una altre forma de calcular dates)
     var dataActual = new Date();
     var anyActual = dataActual.getFullYear();
@@ -126,7 +130,44 @@ window.onload = function() {
             dni.style.border = "1px solid #bfbfbf";
         }
     });
-
+    // FI DNI
+    // NOM
+    nom.addEventListener('input', function() {
+        if (nom.value == "") {
+            nom.style.border = "1px solid red";
+        } else {
+            nom.style.border = "1px solid #bfbfbf";
+        }
+    });
+    // FI NOM
+    // primer cognom
+    primerCognom.addEventListener('input', function() {
+        if (primerCognom.value == "") {
+            primerCognom.style.border = "1px solid red";
+        } else {
+            primerCognom.style.border = "1px solid #bfbfbf";
+        }
+    });
+    // FI primer cognom
+    // segon cognom
+    segonCognom.addEventListener('input', function() {
+        if (segonCognom.value == "") {
+            segonCognom.style.border = "1px solid red";
+        } else {
+            segonCognom.style.border = "1px solid #bfbfbf";
+        }
+    });
+    // FI segon cognom
+    // email
+    email.addEventListener('input', function() {
+        if (email.value == "") {
+            email.style.border = "1px solid red";
+        } else {
+            email.style.border = "1px solid #bfbfbf";
+        }
+    });
+    // FI email
+    
     // DATA
     data.addEventListener('input', function() {
         data_error.innerHTML = "";
@@ -141,8 +182,14 @@ window.onload = function() {
         } else if ((anyActual - anyUsuari) == 3 && (mesActual == mesUsuari) && diaActual < diaUsuari) {
             data_error.innerHTML = "Inferior a 3 anys.";
         }
+        if (data.value == "") {
+            data.style.border = "1px solid red";
+        } else {
+            data.style.border = "1px solid #bfbfbf";
+        }
     });
     // FI DATA
+    
     submit.addEventListener('submit', function(event) {
         camps_buits.innerHTML = "";
         dni_error.innerHTML = "";
@@ -156,19 +203,6 @@ window.onload = function() {
                 inputs[i].style.border = "1px solid #bfbfbf";
             }
         }
-        // Actualització 23-11-20 
-        // if (validarDNI(dni.value) == false) {
-        //     // REVIEW
-        //         // event.preventDefault();
-        //         // END REVIEW
-        //     dni_error.innerHTML = "DNI incorrecte";
-        //     dni.style.border = "1px solid red";
-        //     console.log('DNI incorrecte');
-        // } else {
-        //     dni.style.border = "1px solid #bfbfbf";
-        //     console.log('DNI correcte');
-        // }
-        // FIN 23-11-20
     });
 
 }
