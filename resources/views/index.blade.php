@@ -178,7 +178,7 @@
                     <div class="center-nav">
                         <a href="#">Inici</a>
                         <a href="#">Classifiacions</a>
-                        <a href="#">Inscripcions</a>
+                        <a href="{{url('inscripcio')}}">Inscripcions</a>
                         <a href="#">Noticies</a>
                         <a href="#">Login - Admin</a>
                         <a href="#">FeedBack</a>

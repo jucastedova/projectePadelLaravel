@@ -98,7 +98,7 @@
                 <div class="center">
                     <h4>QUICK LINKS</h4>
                     <div class="center-nav">
-                        <a href="#">Inici</a>
+                        <a href="{{url('/')}}">Inici</a>
                         <a href="#">Classifiacions</a>
                         <a href="#">Inscripcions</a>
                         <a href="#">Noticies</a>
