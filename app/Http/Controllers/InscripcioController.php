@@ -38,6 +38,8 @@ class InscripcioController extends Controller
         $data = $request->except('_token');
 
         try {
+
+            DB::beginTransaction();
             // taula tbl_participant
             DB::table('tbl_participants')->insertGetId([
                 'dni' => $data['dni'],
@@ -52,17 +54,16 @@ class InscripcioController extends Controller
             // tabla inscripcio
             $dni = $data['dni'];
             $nom = $data['nom'];
-            $queryIdParticipant = DB::select('SELECT id_participant FROM tbl_participants WHERE dni = "'.$dni.'"');
-            // print_r($queryIdParticipant[0]->id_participant);
-            $id_participant = $queryIdParticipant[0]->id_participant;
-            
+            // $queryIdParticipant = DB::select('SELECT id_participant FROM tbl_participants WHERE dni = "'.$dni.'"');
+            // $id_participant = $queryIdParticipant[0]->id_participant;
+            $id_participant = DB::getPdo()->lastInsertId();
             $id_categ = intval($this->categoria($data['data_naixement']));
             DB::table('tbl_inscripcio')->insertGetId([
                 'id_participant'=>$id_participant, 
                 'id_categoria'=>$id_categ]);
-            
-            // return redirect('inscripcio')->with(['inscrip', 'ok'], ['nom', $nom]);
 
+            // return redirect('inscripcio')->with(['inscrip', 'ok'], ['nom', $nom]);
+            
             // Correu
             $co = $data['email'];
             $datos_correo = "$nom, t'has inscrit correctament a la cursa.";
@@ -70,10 +71,11 @@ class InscripcioController extends Controller
             $enviar->asunto = "Inscripció cursa";
             Mail::to($co)->send($enviar);
             // END Correu
+            DB::commit();
             return redirect('inscripcio')->with('inscrip', 'ok');
 
         } catch (\Throwable $th) {
-            echo 'Error';
+            DB::rollBack();
         }
 
 

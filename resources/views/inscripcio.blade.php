@@ -75,7 +75,7 @@
         <!--REVIEW -->
         @if (session('inscrip'))
         <div class="v-modal">
-            <p>l'inscripció s'ha realitzar correctament</p>
+            <p>L'inscripció s'ha realitzar correctament</p>
             <div class="button">
                 <a href="{{url('/')}}">Tornar</a>
             </div>
