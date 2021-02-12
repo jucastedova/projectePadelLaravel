@@ -18,7 +18,7 @@
             <figure class="ajuntament">
                 <a href="{{url('/')}}"><img src="img/logo-ajuntament-de-reus-blanco.png" alt="Ajuntament de Reus"></a>
             </figure>
-            <a href="{{url('/')}}">Inici</a>
+            <!-- <a href="{{url('/')}}">Inici</a> -->
             <a href="#">Classificacions</a>
             <a href="{{url('inscripcio')}}">Inscripcions</a>
             <a href="#">Noticies</a>

@@ -48,7 +48,7 @@
             <div class="header-content-middle" id="inscripcions">
                 <h1>15 COMPETICIÓ DE PÀDEL A REUS 2021</h1>
                 <div>
-                    <a href="inscripcion.php">INSCRIU-TE</a>
+                    <a href="{{url('inscripcio')}}">INSCRIU-TE</a>
                 </div>
             </div>
             <div class="header-content-bottom">
