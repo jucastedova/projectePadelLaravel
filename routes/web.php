@@ -18,5 +18,6 @@ use App\Http\Controllers\InscripcioController;
 // });
 
 Route::get('/', [InscripcioController::class, 'index']);
+Route::get('contador', [InscripcioController::class, 'contador']);
 Route::get('inscripcio', [InscripcioController::class, 'inscripcio']);
 Route::post('inscription', [InscripcioController::class, 'inscription']);

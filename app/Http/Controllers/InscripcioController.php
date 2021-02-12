@@ -16,7 +16,11 @@ class InscripcioController extends Controller
     public function inscripcio() { 
         return view('inscripcio');
     }
-
+    public function contador() {
+        // $data ="03/04/2021 8:10:00 AM";
+        $data ="03-04-2021 8:10:00 AM";
+        return response()->json($data, 200);
+    }
     public function categoria($data_naixement) {
         $dataActual = time();
         $diferenciaDates = $dataActual - strtotime($data_naixement);

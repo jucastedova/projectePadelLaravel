@@ -320,7 +320,8 @@ input {
 }
 .page-home .contador .contador-tiempo .day,
 .page-home .contador .contador-tiempo .hours,
-.page-home .contador .contador-tiempo .minutes {
+.page-home .contador .contador-tiempo .minutes,
+.page-home .contador .contador-tiempo .seconds {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -329,30 +330,34 @@ input {
 @media (min-width: 768px) {
   .page-home .contador .contador-tiempo .day,
   .page-home .contador .contador-tiempo .hours,
-  .page-home .contador .contador-tiempo .minutes {
+  .page-home .contador .contador-tiempo .minutes,
+  .page-home .contador .contador-tiempo .seconds {
     margin-right: 4rem;
   }
 }
 .page-home .contador .contador-tiempo .day p:first-of-type,
 .page-home .contador .contador-tiempo .hours p:first-of-type,
-.page-home .contador .contador-tiempo .minutes p:first-of-type {
+.page-home .contador .contador-tiempo .minutes p:first-of-type,
+.page-home .contador .contador-tiempo .seconds p:first-of-type {
   font-weight: 800;
 }
 @media (min-width: 768px) {
   .page-home .contador .contador-tiempo .day p:first-of-type,
   .page-home .contador .contador-tiempo .hours p:first-of-type,
-  .page-home .contador .contador-tiempo .minutes p:first-of-type {
+  .page-home .contador .contador-tiempo .minutes p:first-of-type,
+  .page-home .contador .contador-tiempo .seconds p:first-of-type {
     font-size: calc(2rem + 1vw);
   }
 }
 @media (min-width: 768px) {
   .page-home .contador .contador-tiempo .day p:last-of-type,
   .page-home .contador .contador-tiempo .hours p:last-of-type,
-  .page-home .contador .contador-tiempo .minutes p:last-of-type {
+  .page-home .contador .contador-tiempo .minutes p:last-of-type,
+  .page-home .contador .contador-tiempo .seconds p:last-of-type {
     font-size: calc(1.2rem + 0.5vw);
   }
 }
-.page-home .contador .contador-tiempo .minutes {
+.page-home .contador .contador-tiempo .seconds {
   margin-right: 0;
 }
 .page-home .main .main-content {
@@ -515,7 +520,7 @@ input {
 .page-home .noticies .noticies-content .noticies-1:hover:before,
 .page-home .noticies .noticies-content .noticies-2:hover:before,
 .page-home .noticies .noticies-content .noticies-3:hover:before {
-  background-color: rgb(255 255 12.75%);
+  background-color: rgba(255, 255, 255, 0.2);
   background-color: initial;
 }
 .page-home .informacio {
