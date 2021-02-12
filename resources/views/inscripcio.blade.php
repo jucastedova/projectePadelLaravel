@@ -81,6 +81,14 @@
             </div>
         </div>
         @endif
+        @if (session('errorInscrip'))
+        <div class="v-modal">
+            <p>S'ha produït un error. Probi més tard...</p>
+            <div class="button">
+                <a href="{{url('/')}}">Tornar</a>
+            </div>
+        </div>
+        @endif
         <!-- END REVIEW -->
     </main>
     <footer class="footer">
